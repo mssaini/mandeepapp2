@@ -34,9 +34,18 @@ namespace mandeepapp2
             string weatherData = weather.DownloadString(weather.BaseAddress);
             jsonResponse weathDataObject = JsonConvert.DeserializeObject<jsonResponse>(weatherData);
             textBox.Text = weathDataObject.name;
-        
+            textBox.AppendText(Environment.NewLine);
+            textBox.AppendText(weathDataObject.coord.lat.ToString());
+            textBox.AppendText(Environment.NewLine);
+            textBox.AppendText(weathDataObject.coord.lat.ToString());
+            textBox.AppendText(Environment.NewLine);
+            textBox.AppendText(weathDataObject.main.temp.ToString());
+            textBox.AppendText(Environment.NewLine);
+            textBox.AppendText(DateTime.Now.ToString());
         }
-
+        /// <summary>
+        /// These classes are for converting from JSON to Object
+        /// </summary>
         public class Coord
         {
             public double lon { get; set; }
@@ -96,6 +105,6 @@ namespace mandeepapp2
             public string name { get; set; }
             public int cod { get; set; }
         }
-
+        ////////////////////////////////////////////////////////////////
     }
 }
